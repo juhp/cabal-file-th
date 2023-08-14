@@ -47,7 +47,11 @@ import Language.Haskell.TH (Q, Exp, stringE, runIO)
 -- which was introduced in Cabal-2.0.0.2
 -- readPackageDescription was removed in Cabal-2.2.0.0.
 #if MIN_VERSION_Cabal(3,8,1)
+#if MIN_VERSION_Cabal(3,8,0)
 import Distribution.Simple.PackageDescription (readGenericPackageDescription)
+#else
+import Distribution.Simple.PackageDescription (readGenericPackageDescription)
+#endif
 readPkgDesc = readGenericPackageDescription
 #elif MIN_VERSION_Cabal(2,2,0)
 import Distribution.PackageDescription.Parsec (readGenericPackageDescription)
